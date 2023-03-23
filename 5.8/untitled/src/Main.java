@@ -4,10 +4,10 @@ public class Main {
       int b=5;
       int c;
       if (a>b) {
-          c = a/b
+          c = a/b;
       }
       else {
-          c=a*b
+          c=a*b;
       }
         System.out.println(c);
     }
