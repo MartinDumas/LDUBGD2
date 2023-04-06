@@ -19,7 +19,7 @@ public class Main {
            maximum=b;
        if (c>maximum)
            maximum=c;
-        System.out.println(maximum);
+        System.out.println("Максимальне значення " + maximum);
         int MAXabc = Math.max(Math.max(a,b),c);
         System.out.println(MAXabc);
 
