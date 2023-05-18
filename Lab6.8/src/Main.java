@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Triangle {
     private double a, b, c;
 
@@ -88,21 +90,57 @@ class RightTriangle extends Triangle {
 
 public class Main {
     public static void main(String[] args) {
-        Triangle triangle1 = new Triangle(3.0, 4.0, 5.0);
-        System.out.println("Perimeter of triangle1: " + triangle1.getPerimeter());
-        System.out.println("Area of triangle1: " + triangle1.getArea());
+        Scanner martin = new Scanner(System.in);
 
-        EquilateralTriangle triangle2 = new EquilateralTriangle(5.0);
-        System.out.println("Perimeter of triangle2: " + triangle2.getPerimeter());
-        System.out.println("Area of triangle2: " + triangle2.getArea());
+        System.out.println("Виберіть тип трикутника:");
+        System.out.println("1. Звичайний трикутник");
+        System.out.println("2. Рівносторонній трикутник");
+        System.out.println("3. Рівнобедрений трикутник");
+        System.out.println("4. Прямокутний трикутник");
 
-        IsoscelesTriangle triangle3 = new IsoscelesTriangle(4.0, 3.0);
-        System.out.println("Perimeter of triangle3: " + triangle3.getPerimeter());
-        System.out.println("Area of triangle3: " + triangle3.getArea());
+        int choice = martin.nextInt();
 
-        RightTriangle triangle4 = new RightTriangle(3.0, 4.0);
-        System.out.println("Perimeter of triangle4: " + triangle4.getPerimeter());
-        System.out.println("Area of triangle4: " + triangle4.getArea());
+        switch (choice) {
+            case 1:
+                System.out.println("Введіть довжини сторін звичайного трикутника:");
+                double a = martin.nextDouble();
+                double b = martin.nextDouble();
+                double c = martin.nextDouble();
+                Triangle triangle = new Triangle(a, b, c);
+                System.out.println("Периметр трикутника: " + triangle.getPerimeter());
+                System.out.println("Площа трикутника: " + triangle.getArea());
+                break;
+
+            case 2:
+                System.out.println("Введіть довжину сторони рівностороннього трикутника:");
+                double side = martin.nextDouble();
+                EquilateralTriangle equilateralTriangle = new EquilateralTriangle(side);
+                System.out.println("Периметр трикутника: " + equilateralTriangle.getPerimeter());
+                System.out.println("Площа трикутника: " + equilateralTriangle.getArea());
+                break;
+
+            case 3:
+                System.out.println("Введіть довжину основи і довжину однієї зі сторін рівнобедреного трикутника:");
+                double base = martin.nextDouble();
+                double leg =martin.nextDouble();
+                IsoscelesTriangle isoscelesTriangle = new IsoscelesTriangle(base, leg);
+                System.out.println("Периметр трикутника: " + isoscelesTriangle.getPerimeter());
+                System.out.println("Площа трикутника: " + isoscelesTriangle.getArea());
+                break;
+
+            case 4:
+                System.out.println("Введіть довжину основи і довжину висоти прямокутного трикутника:");
+                double base2 = martin.nextDouble();
+                double height = martin.nextDouble();
+                RightTriangle rightTriangle = new RightTriangle(base2, height);
+                System.out.println("Периметр трикутника: " + rightTriangle.getPerimeter());
+                System.out.println("Площа трикутника: " + rightTriangle.getArea());
+                break;
+
+            default:
+                System.out.println("Некоректний вибір.");
+                break;
+        }
     }
 }
 
